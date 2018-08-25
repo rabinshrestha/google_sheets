@@ -110,6 +110,14 @@ module GoogleSheets
       @service.append_spreadsheet_value(@spreadsheet.key, range, value_range_object, value_input_option: value_input_option)
     end
 
+    ##
+    # clear sheet values
+    #
+    def clear
+      request_body = Google::Apis::SheetsV4::ClearValuesRequest.new
+      @service.clear_values(@spreadsheet.key, @title, request_body)
+    end
+
     private
 
     def hashify_data csv, top_row
