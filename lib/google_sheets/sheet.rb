@@ -107,7 +107,7 @@ module GoogleSheets
     def update values, starting_cell = 'A1', value_input_option = 'RAW'
       range = @title + "!" + starting_cell.to_s
       value_range_object = Google::Apis::SheetsV4::ValueRange.new(values: values)
-      @service.update_spreadsheet_value(@spreadsheet.key, range, value_range_object, value_input_option: value_input_option)
+      @service.append_spreadsheet_value(@spreadsheet.key, range, value_range_object, value_input_option: value_input_option)
     end
 
     private
